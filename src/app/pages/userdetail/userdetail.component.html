@@ -1,0 +1,29 @@
+
+<table class="table table-bordered" >
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Gender</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let user of userDetail" BackGround>
+
+
+    <td>{{ user.firstName }}</td>
+    <td>{{ user.lastName }}</td>
+    <td>{{ user.gender }}</td>
+    <td>{{ user.email }}</td>
+    <td>{{ user.phonenumber }}</td>
+    <td>
+      <button type="submit" class="btn btn-secondary" (click)="edit(user)" appHighlight>
+        Edit
+      </button>
+    </td>
+</tr>
+</tbody>

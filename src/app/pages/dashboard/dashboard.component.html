@@ -1,0 +1,227 @@
+<div class="wrapper d-flex align-items-stretch">
+  <nav id="sidebar"  class="" BackGround>
+    <div class="p-4 pt-5">
+      <a
+       
+        class="img logo rounded-circle mb-5"
+        style="background-image: url(images/logo.jpg)"
+      ></a>
+      <ul class="list-unstyled components mb-5">
+        <li class="active">
+          <a
+            data-toggle="collapse"
+            aria-expanded="false"
+            class="dropdown-toggle collapsed"
+            >Home</a
+          >
+          <ul class="list-unstyled collapse" id="homeSubmenu" style="" >
+            <li>
+              <a>Home 1</a>
+            </li>
+            <li>
+              <a>Home 2</a>
+            </li>
+            <li>
+              <a>Home 3</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a>About</a>
+        </li>
+        <li>
+          <a data-toggle="collapse"  aria-expanded="false"class="dropdown-toggle" >Pages</a >
+          <ul class="collapse list-unstyled" id="pageSubmenu">
+            <li>
+              <a>Page 1</a>
+            </li>
+            <li>
+              <a>Page 2</a>
+            </li>
+            <li>
+              <a>Page 3</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a>Portfolio</a>
+        </li>
+        <li>
+          <a>Contact</a>
+        </li>
+      </ul>
+      
+    </div>
+  </nav>
+
+  <div id="content" class="p-4 p-md-5">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+          <i class="fa fa-bars"></i>
+          <span class="sr-only">Toggle Menu</span>
+        </button>
+        <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" appHighlight>
+          <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-4">
+          <form [formGroup]="registerForm" class="signin-form">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="username">First Name</label>
+                  <input type="text" class="form-control" id="username" formControlName="firstName" #firstnames/>
+                  <div  class="errorMsg" *ngIf="register && firstname.errors?.required">
+                    First Name is required
+                  </div>
+                  </div>
+                  
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="username">Last Name</label>
+                    <input type="text" class="form-control" id="username" formControlName="lastName" #firstnames/>
+                    <div  class="errorMsg" *ngIf="register && lastName.errors?.required">
+                      Last Name is required
+                    </div>
+                    </div>
+                    
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="username">Birthday</label>
+                    <input type="date" class="form-control" id="username" formControlName="birthday" #firstnames/>
+                    <div  class="errorMsg" *ngIf="register && birthday.errors?.required">
+                      Birthday is required
+                    </div>
+                    </div>
+                    
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="username">Gender</label>
+                      <div class="custom-control custom-radio">
+                        <input id="male" type="radio" class="custom-control-input" value="male" name="gender" formControlName="gender">
+                        <label class="custom-control-label" for="male">Male</label>
+                      </div>
+          
+                      <div class="custom-control custom-radio">
+                        <input id="female" type="radio" class="custom-control-input" value="female" name="gender" formControlName="gender">
+                        <label class="custom-control-label" for="female">Female</label>
+                      </div>
+                      <div  class="errorMsg" *ngIf="register && gender.errors?.required">
+                        Gender is required
+                      </div>
+                    </div>
+                    
+                    </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="username">Email</label>
+                      <input type="email" class="form-control" id="username" formControlName="email"/>
+                      <div  class="errorMsg" *ngIf="register && email.errors?.required">
+                        Email is required
+                      </div>
+                      </div>
+                     
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="username">Phone Number</label>
+                        <input type="text" class="form-control" id="username" formControlName="phonenumber"/>
+                        <div  class="errorMsg" *ngIf="register && phonenumber.errors?.required">
+                          Phone number is required
+                        </div>
+                        </div>
+                      
+                      </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                  <div formArrayName="experience" *ngFor="let item of experience.controls; let i = index;">
+                  <div [formGroupName]="i">
+                    <label for="username">Company Name</label>
+                    <input type="text" class="form-control" formControlName="companyName" >
+                    <div class="errorMsg"*ngIf="register&&item.get('companyName')?.errors?.['required']">Company Name is required.</div>
+
+                  
+                    <label for="username">Experience</label>
+                    <input  type="text" class="form-control" formControlName="experience" >
+                    <div class="errorMsg"*ngIf="register&&item.get('experience')?.errors?.['required']">Experience is required.</div>
+
+                    <label for="username">Skills</label>
+                    <input type="text" class="form-control" formControlName="skills" >
+                    <div class="errorMsg"*ngIf="register&&item.get('skills')?.errors?.['required']">Skills is required.</div>
+                    <br>
+
+               
+                  </div>
+                   <div style="display: flex;">
+                    <button class="form-control btn btn-success mx-2" (click)="addItem()" *ngIf="experience.length-1==i" >Add</button>
+                    <button class="form-control btn btn-danger mx-2"  (click)="removeitem(i)" >Remove</button>
+                   </div>
+                
+                  </div>
+                </div>
+              </div>
+              <br>
+            <div class="form-group">
+              <button type="submit" class="form-control btn btn-secondary rounded submit px-6" (click)="registerSubmit()" *ngIf="!update">
+              Register
+              </button>
+              <button type="submit" class="form-control btn btn-secondary rounded submit px-6" (click)="updatedetail()" *ngIf="update">
+                Update
+                </button>
+            </div>
+            <div class="form-group d-md-flex">
+              <div class="w-50 text-left">
+              </div>
+              <div class="w-50 text-md-right">
+               
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-6">
+          
+        <ng-container  >
+            <app-userdetail  [userDetail]="userDetails" (editUser)="edituserdetail($event)"></app-userdetail>
+        </ng-container>
+      
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
