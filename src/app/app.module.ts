@@ -9,6 +9,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { UserdetailComponent } from './pages/userdetail/userdetail.component';
 import { BackGround } from './pages/CustomDirectives/background.directive';
 import { HighlightDirective } from './pages/CustomDirectives/highlight.directive';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { LettersComponent } from './pages/letters/letters.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +19,15 @@ import { HighlightDirective } from './pages/CustomDirectives/highlight.directive
     DashboardComponent,
     UserdetailComponent,
     BackGround,
-    HighlightDirective
+    HighlightDirective,
+    LettersComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
