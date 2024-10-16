@@ -62,7 +62,7 @@
     background-color: #181818;
     position: absolute;
     transform: translateY(-50%);
-    top: 44%;
+    top: 50%;
     right: 10%;
     margin-left: 38px;
     width: 68px;
@@ -88,7 +88,7 @@
     }
   }
   .animate-grow {
-    animation: grow 4.5s ease-out forwards;
+    animation: grow 10.5s ease-out forwards;
   }
   .selected {
     background-color: #000000; /* Background color for selected letter */

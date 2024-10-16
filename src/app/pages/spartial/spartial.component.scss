@@ -1,0 +1,81 @@
+.container-fluid {
+    .card {
+        // padding: 20px;
+        border-radius: 10px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+        .q1_Option img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-block;
+            transform: scale(1);
+        }
+
+        .q1_Option img:hover {
+            transform: scale(1.05);
+            filter: brightness(1.0);
+        }
+
+        span {
+            font-size: 30px;
+            color: #707070;
+            font-weight: 500;
+        }
+
+        .selected{
+
+            z-index: 1;
+            background-image: url(../../../assets/images/icons8-tick-24.png);
+            background-size: auto;
+            background-repeat: no-repeat;
+            background-position: 90%;
+            width: 34%;
+            text-align: center;
+        }
+        .text-gray{
+            color: #707070;
+        }
+
+    }
+
+    .btn {
+        background: #707070;
+        color: #fff;
+        font-weight: 500;
+        border-radius: 5px;
+        padding: 10px 20px;
+    }
+
+    .q1_Count {
+        color: #707070;
+        font-size: 20px;
+        font-weight: 500;
+    }
+}
+.selected{
+
+    z-index: 1;
+    background-image: url(../../../assets/images/icons8-tick-24.png);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: 90%;
+    width: 34%;
+    text-align: center;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    
+    .outer_box{
+        padding: 10px !important;
+    }
+    .padding0{
+        padding: 0 !important;
+    }
+    .main_box{
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-y: scroll;
+    }
+}

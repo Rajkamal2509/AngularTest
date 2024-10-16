@@ -1,0 +1,61 @@
+
+.evidence {
+    list-style: upper-roman;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+}
+
+.answer ul li:hover {
+    background-color: #adabab;
+    cursor: pointer;
+}
+
+.selected {
+   background-color: rgb(239, 239, 239);
+}
+
+
+.text-gray {
+color: #707070;
+}
+
+.btn {
+background: #707070;
+color: #fff;
+font-weight: 500;
+border-radius: 5px;
+padding: 10px 20px;
+}
+
+.q1_Count {
+color: #707070;
+font-size: 20px;
+font-weight: 500;
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+
+.outer_box{
+    padding: 10px !important;
+}
+.padding-min{
+    padding: 10px !important;
+}
+.main_box{
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-y: scroll;
+}
+.option{
+    margin: 10px 0 !important;
+    padding: 10px 15px !important;
+    font-size: 16px !important;
+}
+}

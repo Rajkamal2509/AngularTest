@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { combineLatestInit } from 'rxjs/internal/observable/combineLatest';
 declare var $: any
 @Component({
@@ -36,7 +37,33 @@ export class DashboardComponent implements OnInit {
   register:boolean=false;
   editUser:any
   ngOnInit() {
+    const behaviorSubject = new BehaviorSubject(0);
 
+    // Subscribe to the BehaviorSubject
+    behaviorSubject.subscribe((value: any) => {
+      console.log(`Received value: ${value}`);
+    });
+
+    // Emit values
+    behaviorSubject.next(1);
+    behaviorSubject.next(2);
+
+    // New subscriber
+    behaviorSubject.subscribe((value) => {
+      console.log(`New subscriber received value: ${value}`);
+    });
+
+
+    const subject = new Subject();
+
+    // Subscribe to the Subject
+    subject.subscribe((value) => {
+      console.log(`Received value: ${value}`);
+    });
+
+    // Emit values
+    subject.next(1);
+    subject.next(2);
     this.registerForm=this.formBuilder.group({
       firstName:[null,[Validators.required]],
       lastName:[null,[Validators.required]],

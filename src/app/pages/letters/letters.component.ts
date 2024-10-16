@@ -21,6 +21,11 @@ export class LettersComponent {
   
      
       this.currentInputIndex = this.getNextEmptyInputIndex();
+      this.isAnimating = true; 
+      setTimeout(() => {
+        $('#exampleModal').modal('show')
+        this.isAnimating = false; 
+      },10500 );
     }
   
     

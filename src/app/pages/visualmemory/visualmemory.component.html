@@ -1,0 +1,75 @@
+<div class="container-fluid h-100">
+  <div class="d-flex h-100 flex-column outer_box p-4">
+    <div>
+      <p class="fs-3">Visual Memory</p>
+    </div>
+
+    <div class="row mx-5 py-4 main_box h-100">
+      <div class="col-12">
+        <div class="row p-4 shadow padding-min rounded-4 border">
+          <div class="col-12">
+            <p class="fs-3 text-center text-secondary">
+              {{ getCurrentQuestion().questionWords }}
+            </p>
+          </div>
+          <div class="col-12 col-sm-6 mx-auto py-3">
+            <h4 class="text-start text-dark ps-3">Triangles</h4>
+            <img />
+            <img
+              [src]=" '../../../assets/images/' + getCurrentQuestion().question"
+              class="rounded mx-auto d-block"
+              alt="..."
+            />
+          </div>
+          <div class="col-sm-6 col-12">
+            <ul class="p-0">
+              <li
+              *ngFor="let option of getCurrentQuestion().option"
+                class="border pointer option rounded-2 list-unstyled py-3 px-4 m-4 fs-5 fw-medium border-2"
+                (click)="checkAnswer(option)"
+                [ngClass]="{ selected: selectOptionId == option.id }"
+              >
+                {{ option.option }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex mt-3 justify-content-end align-items-center">
+      <div class="px-3">
+        <p class="m-0 fs-2 text-secondary"><b>{{ currentQuestionIndex + 1 }} / {{ totalQuestions }}</b></p>
+      </div>
+      <div class="px-3">
+        <button (click)="submit()" class="btn btn-lg btn-secondary">
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body m-4 text-secondary text-center">
+        <h2>Your Answer is Correct</h2>
+        <p>Let's Continue</p>
+        <button
+          trianglestype="button" (click)="nextQuestion()"
+          class="btn btn-secondary mt-4"
+          data-bs-dismiss="modal"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

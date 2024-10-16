@@ -1,0 +1,16 @@
+<div class="timer-container mt-2 ml-3" style="margin-right: 50px;">
+    <div class="timerFlex " style="display: flex;">
+        <div class="time-display" style="width: 310px;">
+            <span>{{ minutes }} : {{ seconds | number: '2.0' }}</span>
+            <div style="display: flex;" >
+                <span style="font-size: 9px;" >Minutes</span>
+                <span style="font-size: 9px;margin-left: 30px;">Seconds</span>
+            </div>
+         
+          </div>
+          <div class="progress-bar-container">
+            <div class="progress-bar" [style.width]="progressPercentage + '%'"></div>
+          </div>
+    </div>
+ 
+  </div>

@@ -1,0 +1,65 @@
+<div class="container-fluid h-100">
+    <div class="d-flex h-100 flex-column p-4">
+
+        <div>
+            <p class="fs-3">
+                {{questions[0].title}}
+            </p>
+        </div>
+
+
+        <div class="row shadow rounded-4 m-0 py-4 border h-100">
+
+             
+            <div class="col-12 p-4">
+               
+                <p class="fs-3  text-center text-secondary">
+                    {{ getCurrentQuestion().question }}
+                </p>
+
+                
+               
+            </div>
+
+            <div class="col-12">
+                <div class="options px-5 row ">
+                   <div class="col-10 mx-auto p-3" *ngFor="let option of getCurrentQuestion().options | keyvalue;let i = index" (click)="selectOption(option.key)"> 
+                    <label  [ngClass]="{'selected-option': selectedOption === option.key}" class="p-2 w-100 option fs-4 border border-2 rounded border-dark-subtle">
+                        {{option.value}}
+                    </label>
+                   </div>     
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Bottom -->
+        <div class="d-flex mt-3 justify-content-end align-items-center">
+            <div class="px-3">
+                <p class="m-0 fs-2 text-secondary"><b>{{ currentQuestionIndex + 1 }} / {{ totalQuestions }}</b></p>
+
+            </div>
+            <div class="px-3">
+                <button (click)="submit()" class="btn btn-lg btn-secondary">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal Popup -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered ">
+      <div class="modal-content">
+        
+        <div class="modal-body m-4 text-secondary text-center">
+            <h2>Your Answer is Correct </h2>
+            <p>Let's Continue</p>
+          <button (click)="nextQuestion()" type="button" class="btn btn-secondary mt-4" data-bs-dismiss="modal">Next</button>
+
+        </div>
+        
+      </div>
+    </div>
+  </div>

@@ -11,6 +11,12 @@ import { BackGround } from './pages/CustomDirectives/background.directive';
 import { HighlightDirective } from './pages/CustomDirectives/highlight.directive';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LettersComponent } from './pages/letters/letters.component';
+import { TimerComponent } from './pages/timer/timer.component';
+import { ComparativeAnalysisComponent } from './pages/comparative-analysis/comparative-analysis.component';
+import { VisualmemoryComponent } from './pages/visualmemory/visualmemory.component';
+import { SpartialComponent } from './pages/spartial/spartial.component';
+import { OpenendedComponent } from './pages/openended/openended.component';
+import { EmotionalComponent } from './pages/emotional/emotional.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +26,13 @@ import { LettersComponent } from './pages/letters/letters.component';
     UserdetailComponent,
     BackGround,
     HighlightDirective,
-    LettersComponent
+    LettersComponent,
+    TimerComponent,
+    ComparativeAnalysisComponent,
+    VisualmemoryComponent,
+    SpartialComponent,
+    OpenendedComponent,
+    EmotionalComponent
   ],
   imports: [
     BrowserModule,
